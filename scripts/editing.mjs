@@ -178,7 +178,7 @@ export class Editing {
    */
   static _canEdit(id) {
     const message = game.messages.get(id);
-    if (message.user.id !== game.userId) return false;
+    if (!message.isAuthor) return false;
     if (message.isRoll) return false;
     if (message.getFlag('core', 'canPopout')) return false;
     return true;
